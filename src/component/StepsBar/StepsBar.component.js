@@ -22,8 +22,8 @@ export class StepsBarComponent extends PureComponent {
                 return (
                     <div block="StepsBar-item">
                         <div block="StepsBar-item-container">
-                            <div block={ `StepsBar-item-icon ${ progress }` }>{ index }</div>
                             <div block={ `StepsBar-line ${ progress }` }> </div>
+                            <div block={ `StepsBar-item-icon ${ progress }` }>{ index }</div>
                         </div>
                     </div>
                 );
@@ -34,8 +34,8 @@ export class StepsBarComponent extends PureComponent {
     render() {
         return (
             <div block="StepsBar">
-                <div block="StepsBar-line progress-done"> </div>
                { this.renderSteps() }
+               <div block="StepsBar-line"> </div>
             </div>
         );
     }
