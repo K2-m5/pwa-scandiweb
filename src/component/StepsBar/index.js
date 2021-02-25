@@ -1,1 +1,1 @@
-export { default } from './StepsBar.component';
+export { default } from './StepsBar.container';
