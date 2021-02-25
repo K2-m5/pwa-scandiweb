@@ -12,7 +12,9 @@
             "en_US": true
         },
         "parentTheme": "@scandipwa/scandipwa",
-        "extensions": {}
+        "extensions": {
+            "@scandipwa/m2-theme": false
+        }
     },
     "scripts": {
         "start": "scandipwa-scripts start",
@@ -33,5 +35,6 @@
     "eslintConfig": {
         "extends": "@scandipwa"
     },
-    "proxy": "https://40kskudemo.scandipwa.com/"
+    "proxy": "https://40kskudemo.scandipwa.com/",
+    "devDependencies": {}
 }
