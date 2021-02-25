@@ -15,12 +15,14 @@ export class StepsBarComponent extends PureComponent {
         const currentStep = steps.indexOf(checkoutStep);
         return steps.map((item, index) => {
             const isProgressDone = index > currentStep ? '' : 'progress-done';
-            const isStepPass = index < currentStep ? 'step-pass' : '';
+            const circleValue = index >= currentStep ? index + 1 : '\u2713';
             return (
                 <div block="StepsBar-item" key={ item }>
                     <div block="StepsBar-item-container">
-                        <div block={ `StepsBar-line ${ isProgressDone } ` }> </div>
-                        <div block={ `StepsBar-item-icon ${ isProgressDone } ${ isStepPass }` }>{ index + 1 }</div>
+                        <div block="StepsBar-line">
+                            <div block={ `StepsBar-line-progress ${ isProgressDone }` } />
+                        </div>
+                        <div block={ `StepsBar-item-icon ${ isProgressDone }` }>{ circleValue }</div>
                     </div>
                 </div>
             );

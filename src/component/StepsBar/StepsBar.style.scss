@@ -1,6 +1,6 @@
 .StepsBar {
     position: absolute;
-    top: -34px;
+    top: -36px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
@@ -15,6 +15,19 @@
         height: 4px;
         font-size: 16px;
         background-color: #dbdbdb;
+
+        &-progress {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            transition: .5s ease;
+
+            &.progress-done {
+                width: 100%;
+            }
+        }
     }
 
     &-item {
@@ -41,14 +54,5 @@
 
     .progress-done {
         background-color: #a82222; 
-    }
-
-    .step-pass {
-        font-size: 0;
-
-        &::after {
-            font-size: 16px;
-            content: '\2713';
-        }
     }
 }
