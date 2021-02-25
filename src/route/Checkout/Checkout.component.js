@@ -6,7 +6,9 @@ import StepBar from '../../component/StepsBar';
 /** @namespace PwaScandiweb/Route/Checkout/Component/CheckoutComponent */
 export class CheckoutComponent extends SourceCheckout {
     renderStepBar() {
-        return <StepBar />;
+        const { checkoutStep } = this.props;
+        const arraySteps = Object.keys(this.stepMap);
+        return <StepBar steps={ arraySteps } checkoutStep={ checkoutStep } />;
     }
 
     render() {

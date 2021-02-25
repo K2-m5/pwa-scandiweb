@@ -42,4 +42,13 @@
     .progress-done {
         background-color: #a82222; 
     }
+
+    .step-pass {
+        font-size: 0;
+
+        &::after {
+            font-size: 16px;
+            content: '\2713';
+        }
+    }
 }

@@ -7,34 +7,31 @@ import './StepsBar.style';
 export class StepsBarComponent extends PureComponent {
     static propTypes = {
         steps: PropTypes.instanceOf(Array).isRequired,
-        currentStep: PropTypes.number.isRequired
+        checkoutStep: PropTypes.string.isRequired
     };
 
     renderSteps() {
-        const { steps, currentStep } = this.props;
-        return (
-            steps.map((index) => {
-                let progress = 'progress-done';
-                if (index > currentStep) {
-                    progress = '';
-                }
-
-                return (
-                    <div block="StepsBar-item">
-                        <div block="StepsBar-item-container">
-                            <div block={ `StepsBar-line ${ progress }` }> </div>
-                            <div block={ `StepsBar-item-icon ${ progress }` }>{ index }</div>
-                        </div>
+        const { steps, checkoutStep } = this.props;
+        const currentStep = steps.indexOf(checkoutStep);
+        return steps.map((item, index) => {
+            const isProgressDone = index > currentStep ? '' : 'progress-done';
+            const isStepPass = index < currentStep ? 'step-pass' : '';
+            return (
+                <div block="StepsBar-item" key={ item }>
+                    <div block="StepsBar-item-container">
+                        <div block={ `StepsBar-line ${ isProgressDone } ` }> </div>
+                        <div block={ `StepsBar-item-icon ${ isProgressDone } ${ isStepPass }` }>{ index + 1 }</div>
                     </div>
-                );
-            })
-        );
+                </div>
+            );
+        });
     }
 
     render() {
+        const steps = this.renderSteps();
         return (
             <div block="StepsBar">
-               { this.renderSteps() }
+               { steps }
                <div block="StepsBar-line"> </div>
             </div>
         );
